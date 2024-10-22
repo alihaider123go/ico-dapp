@@ -2,3 +2,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract TecXraToken is ERC20 {
+    constructor() ERC20("TecXra Token", "@TXT"){
+        _mint(msg.sender, 1000000000000000000000000);
+    }
+}

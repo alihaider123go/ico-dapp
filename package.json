@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@openzeppelin/contracts": "^5.0.2",
     "@formspree/react": "^2.5.1",
     "@next/font": "14.0.3",
     "dotenv": "^16.0.0",
