@@ -1,3 +1,18 @@
+import { ethers } from "ethers";
+import Web3Modal from "web3modal";
+
+import tokenICO from "./TokenICO.json";
+import erc20 from "./ERC20.json";
+
+export const TOKEN_ADDRESS = "";
+export const ERC20_ABI = ""; 
+
+export const OWNER_ADDRESS = "";
+
+export const CONTRACT_ADDRESS = "";
+export const CONTRACT_ABI = tokenICO.abi;
+
+
 const networks = {
   sepolia: {
     chainId: `0x${Number(11155111).toString(16)}`,
@@ -99,6 +114,32 @@ const networks = {
     blockExplorerUrls: ["https://bscscan.com"],
   },
 };
+
+
+const changeNetwork = async({networkName})=>{
+    try {
+        if(!window.ethereum) throw new Error("No crypto wallet found");
+        await window.ethereum.request({
+            method:"wallet_addEthereumChain",
+            params:[
+                {
+                    ...networks[networkName],
+                }
+            ],
+        });
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+
+export const handleNetworkSwitch = async()=>{
+    const networkName = "";
+    // await changeNetwork()
+}
+
+
+
 
 const tokenImage =
       "https://www.daulathussain.com/wp-content/uploads/2024/05/theblockchaincoders.jpg";
